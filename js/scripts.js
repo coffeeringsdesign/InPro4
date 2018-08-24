@@ -4,13 +4,12 @@ function Order(name, basePrice, toppings, toppingsPrice, totalPrice) {
   this.name = name;
   this.basePrice = basePrice;
   this.toppings = toppings;
-  // this.toppingsPrice = toppingsPrice;
-  // this.totalPrice = totalPrice;
+  this.toppingsPrice = toppingsPrice;
+  this.totalPrice = totalPrice;
 }
-
 // empty array for toppings
 var pizzaToppings = [];
-
+// ---------------------------------
 // prototype function to set name and price
 Order.prototype.getsize = function(name) { //being called!
   // console.log(this.name); // ---- not working
@@ -20,7 +19,7 @@ Order.prototype.getsize = function(name) { //being called!
   return; //working up thru this return
 } else if (this.name === "mediumPizza") {
   this.basePrice = 10.00;
-  $("#sizeDisplayMedium").show(); //med pizza shows if small isn't an option
+  $("#sizeDisplayMedium").show(); //
   // console.log(this.name);
   return;
 } else if (this.name === "largePizza") {
@@ -30,23 +29,30 @@ Order.prototype.getsize = function(name) { //being called!
   return;
 }
 }
+//calculate total cost
+Order.prototype.endingPrice = function() {
+  this.totalPrice === (this.basePrice + this.toppingsPrice);
+}
 
 
 
 
-// Order.prototype.totalPrice = function() {
-//
-// }
-// prototype to put toppings into an array and show them on page.
+// topping to array   -----------show on page
 Order.prototype.listToppings = function(toppings) { //being called
 // console.log(this.topping); not getting up here
   pizzaToppings.push(this.toppings);
   for (var i = 0; i < pizzaToppings.length; i++) {
     var top = pizzaToppings[i];
-    console.log(top);
+    // console.log(top);
   }
 };
-
+//calculate toppings price total
+Order.prototype.topPrice = function() {
+  var toppingNumber = pizzaToppings.length;
+  this.toppingsPrice = toppingNumber * .50;
+  // console.log(this.toppingNumber);
+}
+// ------------------------
 // User Interface
 $(document).ready(function() {
   var order = new Order();
@@ -58,14 +64,12 @@ $(document).ready(function() {
     // console.log(this.name);
     // this.name console.logs at this point
   });
-
   $("#medium").click(function() {
     this.name = "mediumPizza"; //sets name - works
     $("#sizeDisplayMedium").show(); //shows in sidebar
     order.getsize();
     // console.log(this.name); //these show up correctly!!!
   });
-
   $("#large").click(function() {
     this.name = "largePizza"; //sets name - works
     $("#sizeDisplayLarge").show(); //shows in sidebar
@@ -73,6 +77,7 @@ $(document).ready(function() {
     // console.log(this.name);
   });
 
+// -------------------------
   $("#chooseToppings").click(function(event) {
     event.preventDefault();
     $('.custom-control-input:checked').each(function(){
@@ -83,11 +88,10 @@ $(document).ready(function() {
     });
   });
 
-
-
-
   $("#placeOrder").submit(function(event) {
     event.preventDefault();
+    $("#orderPlaced").show();
+    $("#showFinalPrice").text(this.totalPrice);
   })
 
 });
