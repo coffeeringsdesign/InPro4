@@ -5,3 +5,11 @@
 ul {
   list-style: none;
 }
+
+#orderPlaced {
+  display: none;
+}
+
+.sizeDisplays {
+  display: none;
+}

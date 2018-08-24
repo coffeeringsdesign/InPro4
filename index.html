@@ -99,7 +99,18 @@
             <h3>Your Pizza:</h3>
             <!-- size -->
             <h4>Your Size:</h4>
-            <div id="showSize">Size is here</div>
+            <div class="sizeDisplays" id="sizeDisplaySmall">
+              <h5><em>SMALL</em></h5>
+              <h6>$7.00</h6>
+            </div>
+            <div class="sizeDisplays" id="sizeDisplayMedium">
+              <h5><em>MEDIUM</em></h5>
+              <h6>$10.00</h6>
+            </div>
+            <div class="sizeDisplays" id="sizeDisplayLarge">
+              <h5><em>LARGE</em></h5>
+              <h6>$15.00</h6>
+            </div>
             <!-- toppings -->
             <h4>Your Toppings:</h4>
             <div id="showToppings"></div>
@@ -115,7 +126,7 @@
 
         </div>
       </div>
-      <div class="afterOrderplaced">
+      <div id="orderPlaced" class="afterOrderplaced">
         <h2>Thank you for your order.</h2>
         <h4>Your credit card has been charged <span id="showFinalPrice">finalprice</span></h4>
         <h4>Your pizzus is in production.</h4>
