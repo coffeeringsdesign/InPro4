@@ -7,35 +7,31 @@ function Order(size, totalPrice) {
 
 var pizzaToppings = [];
 var size;
-
+var toppingsPrice;
+var price;
 
 Order.prototype.getsize = function(size) {
   if (size === "smallPizza") {
-  var price = 7.00;
-  return price;
+  return price = 7.00;
 } else if (size === "mediumPizza") {
-  var price = 10.00;
-  return price;
+  return price = 10.00;
 } else if (size === "largePizza") {
-  var price = 15.00;
-  return price;
+  return price = 15.00;
 }
 }
 
-
-Order.prototype.totalPrice = function(toppingsPrice) {
-  var toppingNumber = toppingsPrice.length * .50;
-  var total = toppingNumber + price;
-console.log(total);
+Order.prototype.getPrice = function(toppingsPrice) {
+  var finalTally = (pizzaToppings.length * .5) + price;
+  console.log(finalTally);
+  return finalTally;
 }
-
 
 // User Interface
 $(document).ready(function() {
   var justOrdered = new Order();
 
   $("#small").click(function() {
-    var size = "smallPizza"; 
+    var size = "smallPizza";
     $("#sizeDisplaySmall").show();
     justOrdered.getsize(size);
   });
@@ -52,19 +48,19 @@ $(document).ready(function() {
     justOrdered.getsize(size);
   });
 
-// -------------------------
   $("#chooseToppings").click(function(event) {
     event.preventDefault();
     $('.custom-control-input:checked').each(function(){
-     var toppingsPrice = ($(this).val());
-     // console.log(toppingsPrice); //yessss it is logging
+     var toppingsList = ($(this).val());
+     pizzaToppings.push(toppingsList);
+     console.log(pizzaToppings);
+     var endingTotal = justOrdered.getPrice(toppingsPrice);
     });
   });
 
   $("#placeOrder").submit(function(event) {
     event.preventDefault();
     $("#orderPlaced").show();
-    $("#showFinalPrice").text(totalPrice);
+    $("#showFinalPrice").text(finalTally);
   })
-
 });
