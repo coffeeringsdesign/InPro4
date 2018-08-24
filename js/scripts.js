@@ -8,6 +8,7 @@ function Order(name, basePrice, toppings, toppingsPrice, totalPrice) {
   this.totalPrice = totalPrice;
 }
 
+
 // empty array for toppings
 var pizzaToppings = [];
 
@@ -31,21 +32,24 @@ var pizzaToppings = [];
 //   price: 15.00,
 //   topping: []
 // };
-Order.prototype.name = function() {
+Order.prototype.getsize = function(name) {
   alert("function is being called");
-  if (this.name = smallPizza) {
+  if (this.name === "smallPizza") {
   this.price = 7.00;
-  $("#sizeDisplaySmall").show();
+
+  console.log(this.name);
   return;
-} if else (this.name = mediumPizza) {
+} else if (this.name === mediumPizza) {
   this.price = 10.00;
   $("#sizeDisplayMedium").show();
+  console.log(this.name);
   return;
-} else (this.name = largePizza) {
+} else if (this.name === largePizza) {
   this.price = 15.00;
   ("#sizeDisplayLarge").show();
-  return;
   console.log(this.name);
+  return;
+}
 }
 
 // Order.prototype.totalPrice = function() {
@@ -59,10 +63,22 @@ Order.prototype.name = function() {
 
 // User Interface
 $(document).ready(function() {
-  $("#chooseSize").submit(function(event) {
-    event.preventDefault();
-    this.name = ($("input[name='size']:checked").val());
-    order.name();
-    console.log(this.name);
+  var order = new Order(1);
+
+  $("#small").click(function() {
+    this.name = "smallPizza"; //sets name - works
+    $("#sizeDisplaySmall").show();
+    order.getsize();
   });
+
+
+
+
+  // $("#chooseSize").submit(function(event) {
+  //   event.preventDefault();
+  //   alert("boo");
+  //   this.name = ($("input[name='size']:checked").val());
+  //   name();
+  //   console.log(this.name);
+  // });
 });
