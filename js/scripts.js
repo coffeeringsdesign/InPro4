@@ -13,7 +13,7 @@ var pizzaToppings = [];
 
 // prototype function to set name and price
 Order.prototype.getsize = function(name) { //being called!
-  // console.log(this.name);
+  // console.log(this.name); // ---- not working
   if (this.name === "smallPizza") {
   this.basePrice = 7.00;
   // console.log(this.name);
@@ -23,29 +23,28 @@ Order.prototype.getsize = function(name) { //being called!
   $("#sizeDisplayMedium").show(); //med pizza shows if small isn't an option
   // console.log(this.name);
   return;
-} else if (this.name === largePizza) {
+} else if (this.name === "largePizza") {
   this.basePrice = 15.00;
   ("#sizeDisplayLarge").show();
   // console.log(this.name);
   return;
 }
 }
-
 // Order.prototype.totalPrice = function() {
 //
 // }
-//
-// Order.prototype.topping = function() {
-//   var pizzaToppings = this.topping;
-// };
+// prototype to put toppings into an array and show them on page.
+Order.prototype.listToppings = function(toppings) { //being called
+// console.log(this.topping); not getting up here
+  pizzaToppings.push(this.toppings);
+};
 
 
 // User Interface
 $(document).ready(function() {
-
+  var order = new Order();
 
   $("#small").click(function() {
-    var order = new Order();
     this.name = "smallPizza"; //sets name - works
     $("#sizeDisplaySmall").show(); //showsinsidebar
     order.getsize(); //calls function
@@ -54,25 +53,25 @@ $(document).ready(function() {
   });
 
   $("#medium").click(function() {
-    var order = new Order();
     this.name = "mediumPizza"; //sets name - works
     $("#sizeDisplayMedium").show(); //shows in sidebar
     order.getsize();
-    // console.log(this.name); these show up correctly!!!
+    // console.log(this.name); //these show up correctly!!!
   });
 
   $("#large").click(function() {
-    var order = new Order();
     this.name = "largePizza"; //sets name - works
     $("#sizeDisplayLarge").show(); //shows in sidebar
     order.getsize();
     // console.log(this.name);
   });
 
-  $("#chooseToppings").submit(function(event) {
+  $("#chooseToppings").click(function(event) {
     event.preventDefault();
     $('.custom-control-input:checked').each(function(){
-     alert($(this).val());
+     this.toppings = ($(this).val());
+     order.listToppings();
+     // console.log(this.toppings); //yessss it is logging
     });
   });
 
