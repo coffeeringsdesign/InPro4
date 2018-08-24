@@ -1,9 +1,11 @@
 // Business Logic
 // constructor ---- name = size
-function Pizza(name, price, topping) {
+function Order(name, basePrice, toppings, toppingsPrice, totalPrice) {
   this.name = name;
-  this.price = price;
-  this.topping = topping;
+  this.basePrice = basePrice;
+  this.topping = toppings;
+  this.toppingsPrice = toppingsPrice;
+  this.totalPrice = totalPrice;
 }
 
 // empty array for toppings
@@ -29,36 +31,38 @@ var pizzaToppings = [];
 //   price: 15.00,
 //   topping: []
 // };
-
-Pizza.prototype.name = function() {
-  if (this.name ===
+Order.prototype.name = function() {
+  alert("function is being called");
+  if (this.name = smallPizza) {
+  this.price = 7.00;
+  $("#sizeDisplaySmall").show();
+  return;
+} if else (this.name = mediumPizza) {
+  this.price = 10.00;
+  $("#sizeDisplayMedium").show();
+  return;
+} else (this.name = largePizza) {
+  this.price = 15.00;
+  ("#sizeDisplayLarge").show();
+  return;
+  console.log(this.name);
 }
 
-Pizza.prototype.price = function() {
-  
-}
-
-Pizza.prototype.topping = function() {
-  var pizzaToppings = this.topping;
-};
+// Order.prototype.totalPrice = function() {
+//
+// }
+//
+// Order.prototype.topping = function() {
+//   var pizzaToppings = this.topping;
+// };
 
 
 // User Interface
 $(document).ready(function() {
-  $(".sizes").last().click(function() {
-    if ($("input[name='smallPizza']:checked").val()) {
-      this.name = smallPizza;
-      this.price = 7.00;
-      $("#sizeDisplaySmall").show();
-    } else if ($("input[name='mediumPizza']:checked").val()) {
-      this.name = mediumPizza;
-      this.price = 10.00;
-      ("#sizeDisplayMedium").show();
-    } else ($("input[name='largePizza']:checked").val()) {
-      this.name = largePizza;
-      this.price = 15.00;
-      ("#sizeDisplayLarge").show();
-    }
+  $("#chooseSize").submit(function(event) {
+    event.preventDefault();
+    this.name = ($("input[name='size']:checked").val());
+    order.name();
+    console.log(this.name);
   });
-
 });
