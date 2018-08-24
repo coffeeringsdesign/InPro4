@@ -3,31 +3,30 @@
 function Order(name, basePrice, toppings, toppingsPrice, totalPrice) {
   this.name = name;
   this.basePrice = basePrice;
-  this.topping = toppings;
-  this.toppingsPrice = toppingsPrice;
-  this.totalPrice = totalPrice;
+  this.toppings = toppings;
+  // this.toppingsPrice = toppingsPrice;
+  // this.totalPrice = totalPrice;
 }
-
 
 // empty array for toppings
 var pizzaToppings = [];
 
 // prototype function to set name and price
-Order.prototype.getsize = function() { //being called!
-  // this.name not loggingat this point
-  if (this.name = "smallPizza") {
+Order.prototype.getsize = function(name) { //being called!
+  // console.log(this.name);
+  if (this.name === "smallPizza") {
   this.basePrice = 7.00;
+  // console.log(this.name);
   return; //working up thru this return
-  console.log(this.name);
-} else if (this.name = "mediumPizza") {
+} else if (this.name === "mediumPizza") {
   this.basePrice = 10.00;
-  $("#sizeDisplayMedium").show();
-  console.log(this.name);
+  $("#sizeDisplayMedium").show(); //med pizza shows if small isn't an option
+  // console.log(this.name);
   return;
-} else if (this.name = "largePizza") {
+} else if (this.name === largePizza) {
   this.basePrice = 15.00;
   ("#sizeDisplayLarge").show();
-  console.log(this.name);
+  // console.log(this.name);
   return;
 }
 }
@@ -43,28 +42,45 @@ Order.prototype.getsize = function() { //being called!
 
 // User Interface
 $(document).ready(function() {
-  var order = new Order();
+
 
   $("#small").click(function() {
+    var order = new Order();
     this.name = "smallPizza"; //sets name - works
     $("#sizeDisplaySmall").show(); //showsinsidebar
     order.getsize(); //calls function
+    // console.log(this.name);
     // this.name console.logs at this point
   });
 
   $("#medium").click(function() {
+    var order = new Order();
     this.name = "mediumPizza"; //sets name - works
     $("#sizeDisplayMedium").show(); //shows in sidebar
     order.getsize();
+    // console.log(this.name); these show up correctly!!!
   });
 
   $("#large").click(function() {
+    var order = new Order();
     this.name = "largePizza"; //sets name - works
     $("#sizeDisplayLarge").show(); //shows in sidebar
     order.getsize();
+    // console.log(this.name);
   });
 
-  // $("#chooseToppings").submit(function(event) {
-  //
-  // })
+  $("#chooseToppings").submit(function(event) {
+    event.preventDefault();
+    $('.custom-control-input:checked').each(function(){
+     alert($(this).val());
+    });
+  });
+
+
+
+
+  $("#placeOrder").submit(function(event) {
+    event.preventDefault();
+  })
+
 });
