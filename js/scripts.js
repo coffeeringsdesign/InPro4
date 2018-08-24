@@ -30,6 +30,10 @@ Order.prototype.getsize = function(name) { //being called!
   return;
 }
 }
+
+
+
+
 // Order.prototype.totalPrice = function() {
 //
 // }
@@ -37,8 +41,11 @@ Order.prototype.getsize = function(name) { //being called!
 Order.prototype.listToppings = function(toppings) { //being called
 // console.log(this.topping); not getting up here
   pizzaToppings.push(this.toppings);
+  for (var i = 0; i < pizzaToppings.length; i++) {
+    var top = pizzaToppings[i];
+    console.log(top);
+  }
 };
-
 
 // User Interface
 $(document).ready(function() {
@@ -70,7 +77,8 @@ $(document).ready(function() {
     event.preventDefault();
     $('.custom-control-input:checked').each(function(){
      this.toppings = ($(this).val());
-     order.listToppings();
+     // order.listToppings();
+     $("ul#listToppings").append(order.listToppings());
      // console.log(this.toppings); //yessss it is logging
     });
   });

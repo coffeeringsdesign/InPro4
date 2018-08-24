@@ -42,25 +42,25 @@ _It isn't yet working_
 * _Project demonstrates an understanding of this week's concepts. If prompted, you can discuss your code with an instructor using correct terminology._
 
 ## Specifications
-Customer loads page and sees a list of sizes they choose one one, it shows back what they choose with the initial price start.
+* _Customer loads page and sees a list of sizes they choose one one, it shows back what they choose with the initial price start.
   Input: clicks on "large"
-  Output: shows they they chose large and it will be $15.00
+  Output: shows they they chose large and it will be $15.00 XX_
 
-Customer then looks at a list of toppings and chooses a single one which shows them they added pepperoni adds $.50 each to price tally.
+* _Customer then looks at a list of toppings and chooses a single one which shows them they added pepperoni adds $.50 each to price tally.
   Input: clicks on "pepperoni"
-  Output: "One topping added: pepperoni +$.50"
+  Output: "One topping added: pepperoni +$.50"_
 
-Customer then chooses more toppings each listing out and adding $.50.
+* _When the customer adds toppings and submits it adds $.50 for each topping.
+  Input: clicks on "pepperoni"
+  Output: "+$.50"_
+
+* _Customer then chooses more toppings each listing out and adding $.50.
   Input: clicks on "peppers" and "onions"
-  Output: "One topping added: peppers +$.50" and "One topping added: onions +$.50"
+  Output: "One topping added: peppers +$.50" and "One topping added: onions +$.50"_
 
-<!-- Customer then clicks an add to cart button which then shows the final price.
-  Input: clicks add to cart
-  Output: "Your final total is: $16.50. Do you wish to order" -->
-
-Customer then clicks order to finalize.
+* _Customer then clicks order to finalize.
   Input: clicks order.
-  Output: "Thank you for your order. Your credit card will be charged $16.50 and your pizza is being made"
+  Output: "Thank you for your order. Your credit card will be charged $16.50 and your pizza is being made"_
 
 ## Support and contact details
 
