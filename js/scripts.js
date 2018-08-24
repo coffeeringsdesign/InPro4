@@ -1,61 +1,55 @@
 // Business Logic
-// constructor ---- name = size
-function Order(name, totalPrice) {
-  this.name = name;
+
+function Order(size, totalPrice) {
+  this.size = size;
   this.totalPrice = totalPrice;
 }
-// empty array for toppings
+
 var pizzaToppings = [];
-// ---------------------------------
-// prototype function to set name and price
-Order.prototype.getsize = function(name) { //being called!
-  // console.log(this.name); // ---- not working
-  if (this.name === "smallPizza") {
-  this.basePrice = 7.00;
-  // console.log(this.name);
-  return; //working up thru this return
-} else if (this.name === "mediumPizza") {
-  this.basePrice = 10.00;
-  $("#sizeDisplayMedium").show(); //
-  // console.log(this.name);
-  return;
-} else if (this.name === "largePizza") {
-  this.basePrice = 15.00;
-  ("#sizeDisplayLarge").show();
-  // console.log(this.name);
-  return;
+var size;
+
+
+Order.prototype.getsize = function(size) {
+  if (size === "smallPizza") {
+  var price = 7.00;
+  return price;
+} else if (size === "mediumPizza") {
+  var price = 10.00;
+  return price;
+} else if (size === "largePizza") {
+  var price = 15.00;
+  return price;
 }
 }
 
-//calculate price total
+
 Order.prototype.totalPrice = function(toppingsPrice) {
   var toppingNumber = toppingsPrice.length * .50;
-  var total = toppingNumber + this.basePrice
-  // console.log(this.toppingNumber);
+  var total = toppingNumber + price;
+console.log(total);
 }
-// ------------------------
+
+
 // User Interface
 $(document).ready(function() {
-  var order = new Order();
+  var justOrdered = new Order();
 
   $("#small").click(function() {
-    this.name = "smallPizza"; //sets name - works
-    $("#sizeDisplaySmall").show(); //showsinsidebar
-    order.getsize(); //calls function
-    // console.log(this.name);
-    // this.name console.logs at this point
+    var size = "smallPizza"; 
+    $("#sizeDisplaySmall").show();
+    justOrdered.getsize(size);
   });
+
   $("#medium").click(function() {
-    this.name = "mediumPizza"; //sets name - works
-    $("#sizeDisplayMedium").show(); //shows in sidebar
-    order.getsize();
-    // console.log(this.name); //these show up correctly!!!
+    var size = "mediumPizza";
+    $("#sizeDisplayMedium").show();
+    justOrdered.getsize(size);
   });
+
   $("#large").click(function() {
-    this.name = "largePizza"; //sets name - works
-    $("#sizeDisplayLarge").show(); //shows in sidebar
-    order.getsize();
-    // console.log(this.name);
+    var size = "largePizza";
+    $("#sizeDisplayLarge").show();
+    justOrdered.getsize(size);
   });
 
 // -------------------------
@@ -63,7 +57,7 @@ $(document).ready(function() {
     event.preventDefault();
     $('.custom-control-input:checked').each(function(){
      var toppingsPrice = ($(this).val());
-     // console.log(this.toppings); //yessss it is logging
+     // console.log(toppingsPrice); //yessss it is logging
     });
   });
 
