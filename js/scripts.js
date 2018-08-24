@@ -1,10 +1,7 @@
 // Business Logic
 // constructor ---- name = size
-function Order(name, basePrice, toppings, toppingsPrice, totalPrice) {
+function Order(name, totalPrice) {
   this.name = name;
-  this.basePrice = basePrice;
-  this.toppings = toppings;
-  this.toppingsPrice = toppingsPrice;
   this.totalPrice = totalPrice;
 }
 // empty array for toppings
@@ -29,27 +26,11 @@ Order.prototype.getsize = function(name) { //being called!
   return;
 }
 }
-//calculate total cost
-Order.prototype.endingPrice = function() {
-  this.totalPrice === (this.basePrice + this.toppingsPrice);
-}
 
-
-
-
-// topping to array   -----------show on page
-Order.prototype.listToppings = function(toppings) { //being called
-// console.log(this.topping); not getting up here
-  pizzaToppings.push(this.toppings);
-  for (var i = 0; i < pizzaToppings.length; i++) {
-    var top = pizzaToppings[i];
-    // console.log(top);
-  }
-};
-//calculate toppings price total
-Order.prototype.topPrice = function() {
-  var toppingNumber = pizzaToppings.length;
-  this.toppingsPrice = toppingNumber * .50;
+//calculate price total
+Order.prototype.totalPrice = function(toppingsPrice) {
+  var toppingNumber = toppingsPrice.length * .50;
+  var total = toppingNumber + this.basePrice
   // console.log(this.toppingNumber);
 }
 // ------------------------
@@ -81,9 +62,7 @@ $(document).ready(function() {
   $("#chooseToppings").click(function(event) {
     event.preventDefault();
     $('.custom-control-input:checked').each(function(){
-     this.toppings = ($(this).val());
-     // order.listToppings();
-     $("ul#listToppings").append(order.listToppings());
+     var toppingsPrice = ($(this).val());
      // console.log(this.toppings); //yessss it is logging
     });
   });
@@ -91,7 +70,7 @@ $(document).ready(function() {
   $("#placeOrder").submit(function(event) {
     event.preventDefault();
     $("#orderPlaced").show();
-    $("#showFinalPrice").text(this.totalPrice);
+    $("#showFinalPrice").text(totalPrice);
   })
 
 });
