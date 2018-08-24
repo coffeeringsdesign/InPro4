@@ -32,13 +32,13 @@
 
               <!-- size medium radio buttons -->
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" name="size" class="custom-control-input" value="mediumPizza">
+                <input id="medium" type="radio" name="size" class="custom-control-input" value="mediumPizza">
                 <label class="custom-control-label" for="mediumPizza">Medium $10.00</label>
               </div>
 
     <!-- size large radio buttons -->
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" name="size" class="custom-control-input" value="largePizza">
+                <input id="large" type="radio" name="size" class="custom-control-input" value="largePizza">
                 <label class="custom-control-label" for="LargePizza">Large $15.00</label>
               </div>
             </form>
@@ -87,6 +87,8 @@
                   <input type="checkbox" class="custom-control-input" id="onionCheck">
                   <label class="custom-control-label" for="onionCheck">Onion</label>
                 </div>
+
+                <button id="chooseToppings" type="submit" class="btn btn-primary">Final Answer</button>
               </form>
             </div>
           </div>
