@@ -15,52 +15,48 @@ _A basic exercise in javascript to utalize objects and constructors to allow for
 * _Chrome to see user interface_
 * _I recommend Github for version control_
 
-## Known Bugs
-
-_It isn't yet working_
-
 ## Objectives
 
-* _Allow the user to choose toppings and size for the pizza they'd like to order._
+* _Allow the user to choose toppings and size for the pizza they'd like to order. XX_
 
-* _Create a pizza object constructor with properties for toppings and size._
+* _Create a pizza object constructor with properties for toppings and size. XX_
 
-* _Create a prototype method for the cost of a pizza depending on the selections chosen. Use your own formula for this._
+* _Create a prototype method for the cost of a pizza depending on the selections chosen. Use your own formula for this. XX_
 
-* _Code meets standards from previous weeks._
+* _Code meets standards from previous weeks. XX_
 
-* _Constructors and prototypes are used successfully._
+* _Constructors and prototypes are used successfully. XX_
 
-* _Application works as expected._
+* _Application works as expected. XX_
 
-* _Plain English specs are included in your README._
+* _Plain English specs are included in your README. XX_
 
-* _Required functionality is in place by the 5:00pm Friday deadline._
+* _Required functionality is in place by the 5:00pm Friday deadline... almost_
 
-* _Project is in a polished, portfolio-quality state._
+* _Project is in a polished, portfolio-quality state. XX_
 
-* _Project demonstrates an understanding of this week's concepts. If prompted, you can discuss your code with an instructor using correct terminology._
+* _Project demonstrates an understanding of this week's concepts. If prompted, you can discuss your code with an instructor using correct terminology. XX_
 
 ## Specifications
 * _Customer loads page and sees a list of sizes they choose one one, it shows back what they choose with the initial price start.
   Input: clicks on "large"
-  Output: shows they they chose large and it will be $15.00 XX_
+  Output: shows they they chose large and it will be $15.00_
 
-* _Customer then looks at a list of toppings and chooses a single one which shows them they added pepperoni adds $.50 each to price tally.
-  Input: clicks on "pepperoni"
-  Output: "One topping added: pepperoni +$.50"_
+* _Customer then looks at a list of toppings and chooses a single one which shows them they added pepperoni by an x"
+  Input: clicks on "Pepperoni"
+  Output: "x Pepperoni"_
 
-* _When the customer adds toppings and submits it adds $.50 for each topping.
-  Input: clicks on "pepperoni"
-  Output: "+$.50"_
+* _Customer then chooses more toppings each shown with x"
+  Input: clicks on "Peppers" and "Onions"
+  Output: "x Peppers, X 'Onions"_
 
-* _Customer then chooses more toppings each listing out and adding $.50.
-  Input: clicks on "peppers" and "onions"
-  Output: "One topping added: peppers +$.50" and "One topping added: onions +$.50"_
+* _Customer then clicks to select their toppings, this talleys their total which shows under the pizza size total..
+  Input: clicks button.
+  Output: "Your Total: $7.00"_
 
-* _Customer then clicks order to finalize.
-  Input: clicks order.
-  Output: "Thank you for your order. Your credit card will be charged $16.50 and your pizza is being made"_
+* _Customer then clicks to summit order.
+  Input: clicks place order button
+  Output: "Thank you for your order. Your credit card will be charged and your pizza is being made"_
 
 ## Support and contact details
 

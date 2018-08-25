@@ -2,6 +2,20 @@
   text-align: center;
 }
 
+body {
+  background-image: url(https://previews.123rf.com/images/bigbaraboom/bigbaraboom1612/bigbaraboom161200138/68903388-vector-texture-of-pattern-with-margherita-pizza-slices-in-a-flat-style-seamless-background-cartoon-s.jpg);
+}
+
+.well {
+  background-color: #fcf8d4;opacity:0.9;
+  margin-bottom: 30px;
+}
+
+.jumbotron {
+  background-color: #fcf8d4;opacity:0.9;
+  margin-top: 30px;
+}
+
 ul {
   list-style: none;
   text-align: center;
@@ -13,4 +27,8 @@ ul {
 
 .sizeDisplays {
   display: none;
+}
+
+#placeOrder {
+  margin-top: 20px;
 }

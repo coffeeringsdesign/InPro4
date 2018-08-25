@@ -4,10 +4,11 @@ function Order(size, totalPrice) {
   this.size = size;
   this.totalPrice = totalPrice;
 }
-var finalTally;
+
 var size;
 var toppingsPrice;
 var price;
+var sum;
 
 Order.prototype.getsize = function(size) {
   if (size === "smallPizza") {
@@ -20,9 +21,7 @@ Order.prototype.getsize = function(size) {
 }
 
 Order.prototype.getPrice = function(toppingsCount) {
-  var finalTally = toppingsCount + price;
-  // console.log(finalTally);
-  return finalTally;
+  return sum = toppingsCount + price;
 }
 
 // User Interface
@@ -51,13 +50,11 @@ $(document).ready(function() {
     event.preventDefault();
     toppingsCount = $(":checkbox:checked").length;
     justOrdered.getPrice(toppingsCount);
-    $("#showFinalPrice").text(finalTally);
-    // console.log(toppingsList);
+    $("#showTotal").text("$ " + sum + ".00");
   });
 
-  $("#placeOrder").submit(function(event) {
+  $("#placeOrder").click(function(event) {
     event.preventDefault();
     $("#orderPlaced").show();
-
   });
 });
